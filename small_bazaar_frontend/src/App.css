@@ -1,0 +1,11 @@
+#brandname {
+  font-family: cursive;
+  font-size: xx-large;
+  color: white;
+}
+.nav-link {
+  font-family: cursive;
+  color: white;
+  font-size: large;
+  margin-left: 40px;
+}

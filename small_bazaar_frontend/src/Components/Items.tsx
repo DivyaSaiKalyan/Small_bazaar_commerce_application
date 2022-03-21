@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { AllItemsDisplay, setCartAddItem } from "./../Actions/action";
+import { useNavigate } from "react-router";
 
 const Items: React.FC = (props: any) => {
   const {
@@ -13,6 +14,7 @@ const Items: React.FC = (props: any) => {
   } = props;
 
   const [cloneData, setCloneData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`http://localhost:3001/items/getall`).then((res) => {
@@ -48,7 +50,14 @@ const Items: React.FC = (props: any) => {
                 <h5 className="card-title">Price : {item.itemPrice}/-</h5>
                 <button
                   className="btn btn-primary btn-sm"
-                  onClick={() => setCartAddItem(item, login.email)}
+                  onClick={() => {
+                    if (!login.email) {
+                      alert("please login then add item into cart");
+                      navigate("/login");
+                    } else {
+                      setCartAddItem(item, login.email);
+                    }
+                  }}
                 >
                   Add to Cart
                 </button>

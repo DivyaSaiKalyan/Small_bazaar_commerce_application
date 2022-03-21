@@ -82,10 +82,10 @@ const LoginPage: React.FC = (props: any) => {
             <input
               type="submit"
               value="Submit"
-              className="btn btn-primary btn-sm mt-2 "
+              className="btn btn-primary btn-sm mt-3 "
             />
           </div>
-          <p className="text-center">
+          <p className="text-center mt-4">
             If you dont have account <Link to="/register"> click here </Link> to
             register
           </p>
